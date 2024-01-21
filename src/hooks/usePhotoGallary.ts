@@ -18,7 +18,7 @@ export function usePhotoGallery() {
     const [photos, setPhotos] = useState<UserPhoto[]>([]); 
     const savePicture = async (photo: Photo, fileName: string): Promise<UserPhoto> => {
       //const base64Data = await base64FromPath(photo.webPath!);
-      let base64Data: string;
+      let base64Data: Blob;
       if (isPlatform('hybrid')) {
         const file = await Filesystem.readFile({
           path: photo.path!,
