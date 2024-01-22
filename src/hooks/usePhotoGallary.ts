@@ -23,6 +23,7 @@ export function usePhotoGallery() {
         const file = await Filesystem.readFile({
           path: photo.path!,
         });
+        // @ts-expect-error
         base64Data = file.data;
       } else {
         base64Data = await base64FromPath(photo.webPath!);
